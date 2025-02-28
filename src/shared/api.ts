@@ -53,9 +53,11 @@ export interface ApiHandlerOptions {
 	qwenApiKey?: string
 	mistralApiKey?: string
 	azureApiVersion?: string
+	temperature?: number
 	vsCodeLmModelSelector?: any
 	o3MiniReasoningEffort?: string
 	qwenApiLine?: string
+	top_p?: number
 }
 
 export type ApiConfiguration = ApiHandlerOptions & {

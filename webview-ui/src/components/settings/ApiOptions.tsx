@@ -674,6 +674,19 @@ const ApiOptions = ({ showModelOptions, apiErrorMessage, modelIdErrorMessage, is
 						placeholder={"Enter Model ID..."}>
 						<span style={{ fontWeight: 500 }}>Model ID</span>
 					</VSCodeTextField>
+					<VSCodeTextField
+						value={apiConfiguration?.temperature?.toString() || "0"}
+						style={{ width: "100%" }}
+						onInput={(e) => {
+							const target = e.target as HTMLInputElement
+							const value = parseFloat(target.value)
+							if (!isNaN(value) && value >= 0 && value <= 1) {
+								handleInputChange("temperature")({ target: { value: value.toString() } })
+							}
+						}}
+						placeholder="Enter temperature (0.0-1.0)...">
+						<span style={{ fontWeight: 500 }}>Temperature</span>
+					</VSCodeTextField>
 					<VSCodeCheckbox
 						checked={azureApiVersionSelected}
 						onChange={(e: any) => {

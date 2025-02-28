@@ -45,7 +45,7 @@ export class OpenAiHandler implements ApiHandler {
 		const stream = await this.client.chat.completions.create({
 			model: modelId,
 			messages: openAiMessages,
-			temperature: 0,
+			temperature: Math.min(Math.max(this.options.temperature ?? 1, 0), 2),
 			stream: true,
 			stream_options: { include_usage: true },
 		})
