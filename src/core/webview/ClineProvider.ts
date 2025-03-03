@@ -650,10 +650,10 @@ export class ClineProvider implements vscode.WebviewViewProvider {
 							await this.storeSecret("asksageApiKey", asksageApiKey)
 							await this.updateGlobalState("asksageApiUrl", asksageApiUrl)
 							await this.updateGlobalState("thinkingBudgetTokens", thinkingBudgetTokens)
-                            await this.updateGlobalState("temperature", temperature)
-                            if (this.cline) {
-                                this.cline.api = buildApiHandler(message.apiConfiguration)
-                            }
+							await this.updateGlobalState("temperature", temperature)
+							if (this.cline) {
+								this.cline.api = buildApiHandler(message.apiConfiguration)
+							}
 						}
 						await this.postStateToWebview()
 						break
